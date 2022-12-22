@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////
 module top_square(
-    input wire CLK,             // board clock: 100 MHz on Arty/Basys3/Nexys
+    input wire CLK,             // board clock: 100 MHz on Nexys
     input wire RST_BTN,
     input wire [6:0] h1,
     input wire [6:0] h2,
@@ -68,34 +68,6 @@ module top_square(
 	
 //	// SQ1 is a large Square, and SQ2-9, along with SQ Mid are areas within SQ1
     assign SQ1 = ((x > -1) & (y > -1) & (x < 641) & (y < 481)) ? 1 : 0;
-//    assign SQ2 = ((x > 180) & (y > 60) & (x < 280) & (y < 420)) ? 1 : 0; 
-//    assign SQ3 = ((x > 360) & (y > 60) & (x < 460) & (y < 420)) ? 1 : 0; 
-//    assign SQ4 = ((x > 100) & (y > 279) & (x < 181) & (y < 341)) ? 1 : 0; // Red Square
-//    assign SQ5 = ((x > 100) & (y > 139) & (x < 181) & (y < 201)) ? 1 : 0; // Red Square
-//    assign SQ6 = ((x > 279) & (y > 279) & (x < 361) & (y < 341)) ? 1 : 0; // Red Square
-//    assign SQ7 = ((x > 279) & (y > 139) & (x < 361) & (y < 201)) ? 1 : 0; // Red Square
-//    assign SQ8 = ((x > 459) & (y > 279) & (x < 540) & (y < 341)) ? 1 : 0; // Red Square
-//    assign SQ9 = ((x > 459) & (y > 139) & (x < 540) & (y < 201)) ? 1 : 0; // Red Square
-//    assign SQMid = ((x > 279) & (y > 200) & (x < 361) & (y < 280)) ? 1 : 0; // Center Square
-    
-//	// SQ10-17 are also areas within SQ1
-//    assign SQ10 = ((x > 100) & (y > 60) &  (x < 181) & (y < 140)) ? 1 : 0; // Green Square
-//    assign SQ11 = ((x > 100) & (y > 200) & (x < 181) & (y < 280)) ? 1 : 0; // Green Square
-//    assign SQ12 = ((x > 100) & (y > 340) & (x < 181) & (y < 420)) ? 1 : 0; // Green Square
-//    assign SQ13 = ((x > 279) & (y > 60 ) & (x < 361) & (y < 140)) ? 1 : 0; // Green Square
-//    assign SQ14 = ((x > 279) & (y > 340) & (x < 361) & (y < 420)) ? 1 : 0; // Green Square
-//    assign SQ15 = ((x > 459) & (y > 60 ) & (x < 540) & (y < 140)) ? 1 : 0; // Green Square
-//    assign SQ16 = ((x > 459) & (y > 200) & (x < 540) & (y < 280)) ? 1 : 0; // Green Square
-//    assign SQ17 = ((x > 459) & (y > 340) & (x < 540) & (y < 420)) ? 1 : 0; // Green Square
-//    // SQ10hit-17hit are the same areas as SQ10-17
-//    assign SQ10hit = ((x > 100) & (y > 60) &  (x < 181) & (y < 140)) ? 1 : 0; // Hit Square
-//    assign SQ11hit = ((x > 100) & (y > 200) & (x < 181) & (y < 280)) ? 1 : 0; // Hit Square
-//    assign SQ12hit = ((x > 100) & (y > 340) & (x < 181) & (y < 420)) ? 1 : 0; // Hit Square
-//    assign SQ13hit = ((x > 279) & (y > 60 ) & (x < 361) & (y < 140)) ? 1 : 0; // Hit Square
-//    assign SQ14hit = ((x > 279) & (y > 340) & (x < 361) & (y < 420)) ? 1 : 0; // Hit Square
-//    assign SQ15hit = ((x > 459) & (y > 60 ) & (x < 540) & (y < 140)) ? 1 : 0; // Hit Square
-//    assign SQ16hit = ((x > 459) & (y > 200) & (x < 540) & (y < 280)) ? 1 : 0; // Hit Square
-//    assign SQ17hit = ((x > 459) & (y > 340) & (x < 540) & (y < 420)) ? 1 : 0; // Hit Square
 
     wire H1_0, H1_1, H1_2, H1_3, H1_4, H1_5, H1_6, H2_0, H2_1, H2_2, H2_3, H2_4, H2_5, H2_6, 
         M1_0, M1_1, M1_2, M1_3, M1_4, M1_5, M1_6, M2_0, M2_1, M2_2, M2_3, M2_4, M2_5, M2_6, 
@@ -159,18 +131,11 @@ module top_square(
     assign S2_5 = ((x > 555) & (y > 200) & (x < 570) & (y < 230)) ? 1 : 0;
     assign S2_6 = ((x > 570) & (y > 222) & (x < 600) & (y < 238)) ? 1 : 0;
 
-//    assign A_P0 = ((x > 570) & (y > 85) & (x < 600) & (y < 100)) ? 1 : 0;
-//    assign A_P1 = ((x > 600) & (y > 100) & (x < 615) & (y < 130)) ? 1 : 0;
-//    assign A_P2 = ((x > 600) & (y > 130) & (x < 615) & (y < 160)) ? 1 : 0;
-//    assign A_P3 = ((x > 570) & (y > 160) & (x < 600) & (y < 175)) ? 1 : 0; //added 75 to S1 x-locations // not done btw
-//    assign A_P4 = ((x > 555) & (y > 130) & (x < 570) & (y < 160)) ? 1 : 0;
-//    assign A_P5 = ((x > 555) & (y > 100) & (x < 570) & (y < 130)) ? 1 : 0;
-//    assign A_P6 = ((x > 570) & (y > 122) & (x < 600) & (y < 138)) ? 1 : 0;
 
  // Assign the registers to the VGA 3rd output. This will display strong red on the Screen when 
  // grid = 1, and strong green on the screen when green = 1;
  assign VGA_B[3] = 0;
- assign VGA_R[3] = grid;                    //WORK ON IMPLEMENTING RANDOM_NUM AND HIT FOR EACH 7SEG DISPLAY NEXT
+ assign VGA_R[3] = grid;                    
  assign VGA_G = {0, grid, 0, 0}; 
   always @ (*)
   begin 
@@ -178,8 +143,8 @@ module top_square(
 	
 	//Green = 0 means that there will be no values of x/y on the VGA that will display green
     green = 0;
-	//This statement makes it so that within SQ1, a 3x3 grid of squares appears, with the middle square blacked out
-    grid = SQ1 /*+ H1_0+H1_1+H1_2+H1_3+H1_4+H1_5+H1_6+H2_0+H2_1+H2_2+H2_3+H2_4+H2_5+H2_6+M1_0+M1_1+M1_2+M1_3+M1_4+M1_5+M1_6+M2_0+M2_1+M2_2+M2_3+M2_4+M2_5+M2_6+S1_0+S1_1+S1_2+S1_3+S1_4+S1_5+S1_6+S2_0+S2_1+S2_2+S2_3+S2_4+S2_5+S2_6*/+colonHM_1+colonHM_2+colonMS_1+colonMS_2;
+	//This statement makes it so that within SQ1, the colons appear
+    grid = SQ1 +colonHM_1+colonHM_2+colonMS_1+colonMS_2;
     if(h1[6] == 0) begin
         grid = grid + H1_0;   //h1 = 1001111 --> h1[0]
     end
@@ -306,103 +271,6 @@ module top_square(
     if(s2[0] == 0) begin
         grid = grid + S2_6;
     end
-//    if(ap[0] == 0) begin
-//        grid = grid + A_P0;
-//    end
-//    if(ap[1] == 0) begin
-//        grid = grid + A_P1;
-//    end
-//    if(ap[4] == 0) begin
-//        grid = grid + A_P2;
-//    end
-//    if(ap[3] == 0) begin
-//        grid = grid + A_P3;
-//    end
-//    if(ap[2] == 0) begin
-//        grid = grid + A_P4;
-//    end
-//    if(ap[5] == 0) begin
-//        grid = grid + A_P5;
-//    end
-//    if(ap[6] == 0) begin
-//        grid = grid + A_P6;
-//    end
-//    if(random_num[0] == 1)
-//        begin
-//			//Add SQ10 to the areas which will display strong green.
-//			//Note: This displays yellow on the display, as red+green = yellow.
-//            green = green + SQ10; 
-//        end
-//    else if(random_num[0] == 0 && hit[0]==1)
-//        begin
-//			//Add SQ10 to the areas which will display strong green, and remove it from the area that displays 
-//			//strong red.
-//            green = green + SQ10;
-//            grid = grid - SQ10hit;
-//        end   
-//    if(random_num[1] == 1)
-//        begin
-//            green = green + SQ11;
-//        end
-//    else if(random_num[1] == 0 && hit[1]==1)
-//        begin
-//            green = green + SQ11;
-//            grid = grid - SQ11hit;
-//        end        
-//    if(random_num[2] == 1)
-//        begin
-//            green = green + SQ12;
-//        end
-//    else if(random_num[2] == 0 && hit[2]==1)
-//        begin
-//            green = green + SQ12;
-//            grid = grid - SQ12hit;
-//        end 
-//    if(random_num[3] == 1)
-//        begin
-//            green = green + SQ13;
-//        end
-//    else if(random_num[3] == 0 && hit[3]==1)
-//        begin
-//            green = green + SQ13;
-//            grid = grid - SQ13hit;
-//        end 
-//    if(random_num[4] == 1)
-//        begin
-//            green = green + SQ14;
-//        end
-//    else if(random_num[4] == 0 && hit[4]==1)
-//        begin
-//            green = green + SQ14;
-//            grid = grid - SQ14hit;
-//        end 
-//    if(random_num[5] == 1)
-//        begin
-//            green = green + SQ15;
-//        end
-//    else if(random_num[5] == 0 && hit[5]==1)
-//        begin
-//            green = green + SQ15;
-//            grid = grid - SQ15hit;
-//        end 
-//    if(random_num[6] == 1)
-//        begin
-//            green = green + SQ16;
-//        end
-//    else if(random_num[6] == 0 && hit[6]==1)
-//        begin
-//            green = green + SQ16;
-//            grid = grid - SQ16hit;
-//        end 
-//    if(random_num[7] == 1)
-//        begin
-//            green = green + SQ17;
-//        end
-//    else if(random_num[7] == 0 && hit[7]==1)
-//        begin
-//            green = green + SQ17;
-//            grid = grid - SQ17hit;
-//        end 
     end
     
     
